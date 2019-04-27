@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:Sample" 
+    x:Class="Sample.MainPage">
+    
+    <StackLayout>
+        
+        <Label 
+            x:Name="label"
+            Text="Please click Preload button first to simulate Preload feature, then click Go To Next Page button to see the display of the cached image on the FirstPage"
+            FontSize="14"
+            HorizontalOptions="Center" 
+            HorizontalTextAlignment="Center" />
+        
+        <StackLayout
+            VerticalOptions="CenterAndExpand">
+            
+            <Button
+                Text="Preload"
+                FontSize="20"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Clicked="Handle_ClickedPreload"/>
+            
+            <Button
+                Text="Go To Next Page"
+                FontSize="20"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Clicked="Handle_ClickedNext"/>
+            
+        </StackLayout>
+        
+    </StackLayout>
+    
+</ContentPage>
