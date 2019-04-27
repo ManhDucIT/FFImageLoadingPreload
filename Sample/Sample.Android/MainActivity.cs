@@ -7,6 +7,9 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using FFImageLoading.Forms.Platform;
+using Plugin.CurrentActivity;
+using Plugin.Permissions;
+using FFImageLoading;
 
 namespace Sample.Droid
 {
@@ -22,8 +25,24 @@ namespace Sample.Droid
 
             CachedImageRenderer.Init(false);
 
+            var config = new FFImageLoading.Config.Configuration()
+            {
+                VerboseLogging = true,
+                VerbosePerformanceLogging = false,
+                VerboseMemoryCacheLogging = true
+            };
+            ImageService.Instance.Initialize(config);
+
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
+
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }

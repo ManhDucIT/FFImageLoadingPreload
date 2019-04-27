@@ -7,8 +7,6 @@
     
     <ffimageloading:CachedImage 
         x:Name="image"
-        DownsampleToViewSize="true"
-        Source="ball.jpg"
         Aspect="AspectFit"/>
     
 </ContentPage>
