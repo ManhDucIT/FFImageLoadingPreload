@@ -25,13 +25,13 @@ namespace Sample.Droid
 
             CachedImageRenderer.Init(false);
 
-            var config = new FFImageLoading.Config.Configuration()
-            {
-                VerboseLogging = true,
-                VerbosePerformanceLogging = false,
-                VerboseMemoryCacheLogging = true
-            };
-            ImageService.Instance.Initialize(config);
+            //var config = new FFImageLoading.Config.Configuration()
+            //{
+            //    VerboseLogging = true,
+            //    VerbosePerformanceLogging = false,
+            //    VerboseMemoryCacheLogging = true
+            //};
+            //ImageService.Instance.Initialize(config);
 
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
 

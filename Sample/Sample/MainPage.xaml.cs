@@ -16,6 +16,7 @@ namespace Sample
     {
 
         private string _filePath;
+        private int width, height;
         private bool isPageAppearingInvoked;
 
         public MainPage()
@@ -23,10 +24,13 @@ namespace Sample
             InitializeComponent();
         }
 
-        async void Handle_ClickedPreload(object sender, EventArgs e)
+        void Handle_ClickedPreload(object sender, EventArgs e)
         {
-            ImageService.Instance.LoadCompiledResource("sample.jpg")
-               .DownSample(width: 300)
+            width = (int)Application.Current.MainPage.Width;
+            height = (int)Application.Current.MainPage.Height;
+
+            ImageService.Instance.LoadCompiledResource("ball.jpg")
+               .DownSample(width, height, true)
                .Success((info, result) =>
                {
                    Debug.WriteLine($"Preloading finished! Key: {info.CacheKey}");
@@ -39,7 +43,7 @@ namespace Sample
         {
             isPageAppearingInvoked = false;
 
-            await NavigationHelper.GetInstance().NavigateTo(new FirstPage(_filePath));
+            await NavigationHelper.GetInstance().NavigateTo(new FirstPage(_filePath, width, height));
         }
 
         protected override void OnAppearing()

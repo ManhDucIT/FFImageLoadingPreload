@@ -8,9 +8,11 @@ namespace Sample
 {
     public partial class FirstPage : ContentPage
     {
-        public FirstPage(string filePath)
+        public FirstPage(string filePath, int width, int height)
         {
             InitializeComponent();
+            image.DownsampleWidth = width;
+            image.DownsampleHeight = height;
 
             image.Success += (sender, e) =>
             {
