@@ -11,8 +11,9 @@ namespace Sample
         public FirstPage(string filePath, int width, int height)
         {
             InitializeComponent();
-            image.DownsampleWidth = width;
-            image.DownsampleHeight = height;
+
+            //image.DownsampleWidth = width;
+            //image.DownsampleHeight = height;
 
             image.Success += (sender, e) =>
             {

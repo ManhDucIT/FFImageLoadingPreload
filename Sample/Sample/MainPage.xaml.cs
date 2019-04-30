@@ -30,7 +30,7 @@ namespace Sample
             height = (int)Application.Current.MainPage.Height;
 
             ImageService.Instance.LoadCompiledResource("ball.jpg")
-               .DownSample(width, height, true)
+               .DownSample(0, 0, true)
                .Success((info, result) =>
                {
                    Debug.WriteLine($"Preloading finished! Key: {info.CacheKey}");
