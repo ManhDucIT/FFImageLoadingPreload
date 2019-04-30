@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace Sample
 {
@@ -11,10 +12,10 @@ namespace Sample
         {
             InitializeComponent();
 
-            image.WidthRequest = Application.Current.MainPage.Width;
-            image.HeightRequest = Application.Current.MainPage.HeightRequest;
-
-            image.Source = ImageSource.FromFile(filePath);
+            image.Success += (sender, e) =>
+            {
+                Debug.WriteLine(Enum.GetName(e.LoadingResult.GetType(), e.LoadingResult));
+            };
         }
     }
 }

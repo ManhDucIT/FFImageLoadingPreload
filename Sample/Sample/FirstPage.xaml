@@ -7,6 +7,8 @@
     
     <ffimageloading:CachedImage 
         x:Name="image"
-        Aspect="AspectFit"/>
+        Aspect="AspectFit"
+        DownsampleWidth="300"
+        Source="sample.jpg"/>
     
 </ContentPage>
